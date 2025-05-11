@@ -153,26 +153,117 @@ import './App.css'
 
 
 // =====================================================Task5===============================================================
+// import React from 'react'
+// import Buton from '../Buton'
+
+// const App = () => {
+
+//     const[count, setcount]=useState(0)
+
+
+
+//     const handlerclick=()=>{
+//         setcount(count+1)
+
+
+//     }
+//     const handledecr=()=>{
+//        if(count>0) setcount(count-1)
+//     }
+   
+//   return (
+//     <div><Buton func1={handlerclick} func2={handledecr} count={count} /></div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+// =========================================Task6=======================================================================
+
+// import React from 'react'
+// import Counter from './Counter'
+
+
+// const App = () => {
+
+//   const [count, setCount]=useState(0)
+
+//   const increase=()=>{
+//     setCount(count+1)
+//   }
+//   const decrease=()=>{
+//   if(count>0)  setCount(count-1)
+//   }
+//   return (
+//     <div>
+//       <Counter increase={increase} decrease={decrease} count={count}/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =====================================Task7==============================================================================
+
+// 2. Login Form with Controlled Inputs
+// Fields: Email and Password
+
+// Show errors if fields are empty or invalid
+
+// On submit, show a welcome message
+
+
 import React from 'react'
-import Buton from '../Buton'
 
 const App = () => {
 
-    const[count, setcount]=useState(0)
-
-
-
-    const handlerclick=()=>{
-        setcount(count+1)
-
-
-    }
-    const handledecr=()=>{
-       if(count>0) setcount(count-1)
-    }
-   
+  const[input, setInput]=useState("")
+  const[email, setEmail]=useState("")
+const [msg, setMsg]=useState("")
+  const [submitname, setsubmitname]=useState('')
+  const[submitemail, setsubmitemail]=useState('')
+  
+  
+  const submit=(e)=>{
+e.preventDefault()
+ setMsg("Welcome")
+     setsubmitname(input)
+     setsubmitemail(email)
+  }
   return (
-    <div><Buton func1={handlerclick} func2={handledecr} count={count} /></div>
+    <div>
+      <form action="" onSubmit={(e)=>{submit(e)}}>
+        <label htmlFor="">name</label>
+        <input type="text" placeholder='name'  value={input} onChange={e=>{setInput(e.target.value)}} />
+
+        <label htmlFor="">email</label>
+        <input type="email" placeholder='email' value={email} onChange={e=>{setEmail(e.target.value)}} />
+
+        <button type='submit'>click me</button>
+
+
+      
+      </form>
+        <h1>{msg}</h1>
+        <p>{submitname}</p>
+        <p>{submitemail}</p>
+    </div>
   )
 }
 
